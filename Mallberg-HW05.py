@@ -1,20 +1,21 @@
 #Marit Mallberg
 #cosc 1010
 #Lab Section 10
-#Help given/recieved:
+#Help given/recieved:I gave help to Serena and Paige, and got a lot of help from the lecture slides.
 #Notes: I decided to make a geometric mandela/snowflake pattern, it is of my own creation. 
 
 import openpyxl
 from openpyxl.styles import Color, PatternFill
+from openpyxl.utils import get_column_letter
 
 import string
 
-canvas = openpyxl.workbook()
+canvas = openpyxl.Workbook()
 sheet = canvas.active
 
 #set cells as squares ...
 for i in range(1,24):
-    sheet.row_demensions[i].height = 23.25
+    sheet.row_dimensions[i].height = 23.25
 for chr in string.ascii_uppercase[:21]:
     sheet.column_dimensions[chr].width = 3.71
 
