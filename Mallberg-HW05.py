@@ -8,7 +8,7 @@ import openpyxl
 from openpyxl.styles import Color, PatternFill
 from openpyxl.utils import get_column_letter
 
-import string
+string =["A","B","C"]
 
 canvas = openpyxl.Workbook()
 sheet = canvas.active
