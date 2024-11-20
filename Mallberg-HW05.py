@@ -3,12 +3,14 @@
 #Lab Section 10
 #Help given/recieved:I gave help to Serena and Paige, and got a lot of help from the lecture slides.
 #Notes: I decided to make a geometric mandela/snowflake pattern, it is of my own creation. 
+#I am turinging it in now, even though it does not run fully because I know that it is so close to running
+# and I am very mad that it will not run.
 
 import openpyxl
 from openpyxl.styles import Color, PatternFill
-from openpyxl.utils import get_column_letter
 
-string =["A","B","C"]
+string =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U"
+]
 
 canvas = openpyxl.Workbook()
 sheet = canvas.active
@@ -16,7 +18,7 @@ sheet = canvas.active
 #set cells as squares ...
 for i in range(1,24):
     sheet.row_dimensions[i].height = 23.25
-for chr in string.ascii_uppercase[:21]:
+for chr in string:
     sheet.column_dimensions[chr].width = 3.71
 
 # set colors and fills... 
@@ -35,7 +37,7 @@ skyfill = PatternFill(patternType='solid', fgColor= sky)
 green = Color(rgb='397367')
 greenfill = PatternFill(patternType='solid',fgColor=green)
 
-#now to set a list to each color
+#set a list to each color
 tealcells = ["H11","H12","H13","I12","J12","K12","L12","M12","N11","N12","N13"]
 purplecells = ["K8","K9","K10","J9","L9","K14","K15","K16","J15","L15"]
 greycells = ["C12","D12","E11","E13","F11","F13","G10","G14","H9","H15","I7","I8","I16","I17","J6","J18","K5","K18","L6","L18","M7","M8","M16","M17","N9","N15","O8","O14","P11","P13","Q11","Q13","R12","S12"]
@@ -48,17 +50,17 @@ print(parameter_check)
 #Now to color ... 
 
 for i in range(1,24):
-    for chr in string.ascii_uppercase[:21]:
-        coordin = chr+string(i)
+    for chr in string:
+        coordin = chr+str(i)
         if coordin in tealcells:
-            sheet[coordin].fill = tealfill
+            sheet['coordin'].fill = tealfill
         if coordin in purplecells:
-            sheet[coordin].fill = purplecells
+            sheet['coordin'].fill = purplecells
         if coordin in greycells:
-            sheet[coordin].fill = greyfill
+            sheet['coordin'].fill = greyfill
         if coordin in skycells:
-            sheet[coordin].fill = skyfill
+            sheet['coordin'].fill = skyfill
         if coordin in greencells:
-            sheet[coordin].fill = greenfill
+            sheet['coordin'].fill = greenfill
 
 canvas.save('HW05-cosc.xlsx')
